@@ -1,0 +1,120 @@
+// Episode 1
+
+var name = 'Keith';
+
+var printName = function() {
+  console.log('My name is ' + name );
+};
+
+printName();
+
+// Will print "My name is Keith" as Keith is assigned to name
+
+
+// Episode 2
+
+score = 5;
+
+var result = function() {
+  var score = 3;
+  return score;
+};
+
+console.log(result());
+
+// Will return 3 as the variable score has been changed within the function
+
+// Episode 3
+
+var myAnimals = ['Chickens', 'Cats', 'Rabbits'];
+
+var listAnimals = function() {
+  myAnimals = ['Ducks', 'Dogs', 'Lions'];
+  for(var i=0;i<myAnimals.length; i++){
+    console.log(i + ": " + myAnimals[i]);
+  }
+}
+
+listAnimals();
+
+//Will return 0: Ducks 1:Dogs 2:Lions as the variable myAnimals is changed within
+//the function.  Its looping through, printing i as a number then the animal.
+
+// Episode 4
+
+var suspectOne = 'Jay';
+var suspectTwo = 'Val';
+var suspectThree = 'Keith';
+var suspectFour = 'Rick';
+
+var allSuspects = function() {
+  var suspectThree = 'Harvey'
+  console.log('Suspects include: ' + suspectOne + ', ' + suspectTwo + ', ' + suspectThree + ', ' + suspectFour)
+};
+
+allSuspects();
+console.log( 'Suspect three is:' + suspectThree );
+
+//Will print "Suspects include Jay, Val, Harvey, Rick" as suspect3 is reasigned to
+//Harvey in the function.
+//"Suspect3 is Keith" as it can't see in the function so goes up to the top level
+//where it can see it.
+
+// Episode 5
+
+var detective = {
+  name : 'Ace Ventura',
+  pet : 'monkey'
+};
+
+var printName = function(detective) {
+  return detective.name
+};
+
+var detectiveInfo = function() {
+  detective['name'] = 'Poirot'
+  return printName(detective);
+};
+
+console.log(detectiveInfo())
+
+//Will return Poirot as in detectiveInfo the name is reasigned.  Its then
+//calling on the printName function wich returns the objects name value.
+
+// Episode 6
+
+var murderer = 'rick';
+
+var outerFunction = function() {
+  var murderer = 'marc';
+
+  var innerFunction = function() {
+    murderer = 'valerie';
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+console.log('the murderer is ', murderer);
+
+//Will return "the murderer is rick" as the log is being called outwith the
+//function so can't see any of the reasignments happening within the function.
+
+
+Episode 7 - Make up your own episode/s!
+
+Make up your own episode which can be whatever you wish and the rest of the class will
+work out together what happened and what the output will be.
+
+var cat1 = "Fergus"
+var cat2 = "Maggie"
+var cat3 = "Dot"
+
+var allCats = function(){
+  var cat2 = "Clio"
+  console.log("The cat that ate all the food is " + cat2);
+}
+
+allCats()
+console.log("The cat that ate all the food is " + cat2);
